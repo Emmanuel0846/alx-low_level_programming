@@ -1,10 +1,11 @@
 #include <stdlib.h>
 #include "lists.h"
 #include <string.h>
+#include <stdio.h>
 
 /**
  * add_node_end - Adds a new node at the end
- *                of a list_t list.
+ *           of a list_t list.
  * @head: A pointer the head of the list_t list.
  * @str: The string to be added to the list_t list.
  *
@@ -15,7 +16,7 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	char *dup;
 	int len;
-	list_t *new, *last;
+	list_t *new, *this_node;
 
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
@@ -40,10 +41,10 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	else
 	{
-		last = *head;
-		while (last->next != NULL)
-			last = last->next;
-		last->next = new;
+		this_node = *head;
+		while (this_node->next != NULL)
+			this_node = this_node->next;
+		this_node->next = new;
 	}
 
 	return (*head);
