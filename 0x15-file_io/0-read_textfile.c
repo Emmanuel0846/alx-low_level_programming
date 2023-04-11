@@ -3,7 +3,7 @@
 
 /**
  * read_textfile - Entry point to read a text file
- * 		and print into POSIX stdout.
+ *		and print into POSIX stdout.
  * Project by Olaoluwa Emmanuel IDOWU
  * @filename: A pointer to naming the file.
  * @letters: The amount of letters that the
@@ -25,8 +25,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	openMe = open(filename, O_RDONLY);
-	readMe = read(o, buffer, letters);
-	writeMe = write(STDOUT_FILENO, buffer, r);
+	readMe = read(openMe, buff, letters);
+	writeMe = write(STDOUT_FILENO, buff, readMe);
 
 	if (openMe == -1 || readMe == -1 || writeMe == -1 || writeMe != readMe)
 	{
