@@ -36,11 +36,11 @@ void closeFile(int fileDesc)
 {
 	int closeMe;
 
-	closeMe = close(fd);
+	closeMe = close(fileDesc);
 
 	if (closeMe == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileDesc);
+		dprintf(STDERR_FILENO, "Error: Can't close fileDesc %d\n", fileDesc);
 		exit(100);
 	}
 }
